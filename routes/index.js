@@ -54,4 +54,11 @@ router.get("/", function (req,res){
   res.render("index");
 });
 
+router.get("/checkban", function(req,res){
+  if(req.session.ban === true){
+    res.send("You are banned");
+  }
+})
+
+
 module.exports = router;
