@@ -58,6 +58,13 @@ router.get("/checkban", function(req,res){
   if(req.session.ban === true){
     res.send("You are banned");
   }
+});
+
+router.get("/removeban", function(req,res){
+  req.session.destroy(function(err){
+    if(err) throw err;
+    res.send("ban removed");
+  })
 })
 
 
