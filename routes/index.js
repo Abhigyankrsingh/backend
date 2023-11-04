@@ -80,4 +80,10 @@ router.get("/read", function(req,res){
   res,send("check");
 
 });
+
+router.get("/delete", function(req,res){
+  res.clearCookie("age");
+  res.send("It has Cleared");
+});
+
 module.exports = router;
