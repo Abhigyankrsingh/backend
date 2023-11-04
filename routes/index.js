@@ -48,4 +48,10 @@ router.get("/allusers", async function (req,res){
   let all = await userModel.find()
   res.send(all);
 });
+
+router.get("/", function (req,res){
+  req.session,ban = true;
+  res.render("index");
+});
+
 module.exports = router;
