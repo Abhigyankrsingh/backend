@@ -75,4 +75,9 @@ router.get("/", function(req,res){
   res.render("index");
 })
 
+router.get("/read", function(req,res){
+  console.log(req.cookies);
+  res,send("check");
+
+});
 module.exports = router;
