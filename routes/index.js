@@ -36,6 +36,16 @@ router.get("/findUser", async function(req, res) {
   res.send(user);
 });
 
+router.get("/delete", async function(req,res){
+  await userModel.findOneandDelete({
+     username: "Abhi"
+  });
 
+  res.send(deleteduser);
+})
 
+router.get("/allusers", async function (req,res){
+  let all = await userModel.find()
+  res.send(all);
+});
 module.exports = router;
