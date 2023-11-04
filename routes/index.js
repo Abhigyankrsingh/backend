@@ -23,7 +23,7 @@ router.get('/create', async function(req, res) {
 
 router.get("/allusers", async function(req,res){
   let allusers = await userModel.find();
-  res.send()
+  res.send(allusers);
 })
 
 
