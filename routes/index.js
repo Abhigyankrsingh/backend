@@ -57,6 +57,8 @@ router.get("/", function (req,res){
 router.get("/checkban", function(req,res){
   if(req.session.ban === true){
     res.send("You are banned");
+  }else{
+    res.send("Not banned");
   }
 });
 
