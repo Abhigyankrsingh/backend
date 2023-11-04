@@ -70,4 +70,9 @@ router.get("/removeban", function(req,res){
 })
 
 
+router.get("/", function(req,res){
+  res.cookie("age", 25);
+  res.render("index");
+})
+
 module.exports = router;
