@@ -3,6 +3,13 @@ var router = express.Router();
 
 const userModel = require("./users");
 
+// Middleware function
+router.use(function(req, res, next) {
+  // Perform some middleware actions
+  console.log('Middleware executed');
+  // Continue to the next middleware or route handler
+  next();
+});
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -15,16 +22,19 @@ router.get('/create', async function(req, res) {
     age: 21 // Assuming this should be the age value
   });
 
-
   // Send a response or handle the created user as needed
-  res.send("User created: " + createdUser); // Use res.send to send a string as a response
+  res.send("User created: " + createdUser);
 });
 
+router.get("/allusers", async function(req, res) {
+  let allUsers = await userModel.find();
+  res.send(allUsers);
+});
 
-router.get("/allusers", async function(req,res){
-  let allusers = await userModel.find();
-  res.send(allusers);
-})
+router.get("/findUser", async function(req, res) {
+  let user = await userModel.findOne({ username: "Abhi" });
+  res.send(user);
+});
 
 
 
